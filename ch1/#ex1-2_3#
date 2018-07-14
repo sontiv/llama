@@ -1,0 +1,14 @@
+:#!/usr/bin/perl
+#$perldoc -u -f atan2
+
+@lines = `perldoc -u -f atan2`;
+foreach (@lines){
+    s/\w<([^>]+)>/\U$1/g;
+    say;
+    print;
+}
+
+# Can't find string terminator "`" anywhere before EOF at ./learningPerl(5.14) line 4.
+# ' <> ` :(
+# say	no output
+# \w	disappear

@@ -1,0 +1,16 @@
+#!/usr/bin/perl -X
+
+use 5.014;
+use utf8;
+
+my $num_fmt_spc = "."x9;
+say "="x(87)."\n"."Repeat a string n times";
+print 'Enter str: ';
+my $str = <STDIN>;
+print 'Enter   n: ';
+chomp(my $n = <STDIN>);
+my $multi_str = ".$str" x $n;
+print $num_fmt_spc."str"." "x3; print ord($str)."-$str";
+print $num_fmt_spc."\b\b\bx.."."n"." "x5; print "$n\n";
+say "-"x(9*2+4);
+print "result:\n".$multi_str;

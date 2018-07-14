@@ -1,0 +1,16 @@
+#!/usr/bin/perl -w
+
+#use 5.014;
+use utf8;
+
+print "Enter a index-number of person's name to be select ...\n";
+@myfriends = qw/nobody fred betty barney dino wilma pebbles bamm-bamm/;
+@tobe_select = <STDIN>;
+print "---selected\n";		
+foreach my $num (@tobe_select) {
+	if ( $num<@tobe_select && $num>=1 ) {
+		print @myfriends[$num] . "\n";
+	}
+}
+
+

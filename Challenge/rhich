@@ -1,0 +1,77 @@
+use strict;
+use warnings;
+use Config;
+use File::Util;
+use Array::Utils qw(unique);
+use Getopt::Long qw(:config pass_through);
+
+my $all=0;
+
+GetOptions('a'=>\$all);
+
+my $dir_sep=File::Util->SL; #Either "\" or "/".
+my $path_sep=$Config{path_sep}; #Either ";" or ":".
+
+die "No PATH found" unless $ENV{PATH};
+
+unless(@ARGV)
+{
+    print "Usage: perl rhich.pl [-a] pattern1 [pattern2 ...]\n";
+    exit 0;
+}
+
+#No sense in looking for patterns twice.
+@ARGV=unique(@ARGV);
+
+my @path=split(/$path_sep/,$ENV{PATH});
+
+#In case directories are listed more than once...
+@path=unique(@path);
+
+my %output;
+$output{$_}=[] foreach(@ARGV);
+
+#We want to keep track of the original patterns (when we print the output)
+#but this array will allow us to remove patterns in case -a isn't enabled.
+
+my @patterns_to_check=@ARGV; 
+
+foreach my $dir (@path)
+{
+    my $dh;
+    
+    unless(opendir($dh,$dir))
+    {
+        warn "Could not open directory $dir.\n";
+        next;
+    }
+    
+    my @files=readdir($dh);
+    
+    closedir($dh);
+    foreach my $file (@files)
+    {
+        foreach my $pattern (@patterns_to_check)
+        {
+            if($file=~/$pattern/)
+            {
+                push @{$output{$pattern}},$dir . $dir_sep . $file;
+                unless($all)
+                {
+                    @patterns_to_check=grep{$_ ne $pattern}@patterns_to_check;
+                }
+            }
+        }
+    }
+}
+
+#Printing out files in:
+#a) the order of patterns given and
+#b) the order found within each pattern (if -a is enabled)
+foreach my $pattern (@ARGV)
+{
+    foreach my $file (@{$output{$pattern}})
+    {
+        print "$file\n";
+    }
+}

@@ -1,0 +1,25 @@
+#!/usr/bin/perl -w
+
+use 5.014;
+use utf8;
+
+my $num_fmt_spc = "."x9;
+say "="x(87)."\n"."Calculate α χ β";
+#say "Calculate α χ β";
+print 'Enter α: ';
+chomp(my $a = <STDIN>);
+#say $a;1_23
+print 'Enter β: ';
+#say $b;2_345
+chomp(my $b = <STDIN>);
+my $multi_result = $a * $b;
+print $num_fmt_spc."α"." "x5; print "$a\n";
+print $num_fmt_spc."\b\b\bx.."."β"." "x5; print "$b\n";
+say "-"x(9*2+4);
+say ' 'x(3).'result:'.' 'x(5).$multi_result;
+#- ---------------------------------------------------------------------------------------
+#Calculate α χ β
+#..........α...........1_23
+#.......χ..β...........2_345
+#..--------------------
+#result:...2.8782

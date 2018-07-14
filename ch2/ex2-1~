@@ -1,0 +1,15 @@
+#!/usr/bin/perl -w
+
+use 5.014;			# perl -we 'use 5.014; print "z"x5.1."\n";'
+use utf8;			# perl -We 'use 5.014; my $x="z"x5.1 ;print $x."\n";'
+				# perl -e 'use utf8; print chr(25340)."\n";'
+				# perl -e 'use utf8; print ord("拼")."\n";'
+				# perldoc Term::ReadLine
+				# perldoc -m Math::Complex
+				# perldoc|info|man perldoc|perltoc|perlintro|perlvar|perlstyle|perlop
+				# perldoc -f chomp
+use Math::BigFloat;		# cpan Math::BigFloat
+my $radius = 12.5;
+my $pi = Math::BigFloat->bpi(3);     # PI to 100 digits
+my $circle_circumference = 2 * $pi * $radius; # 0x03C0 -- GREEK SMALL LETTER PI
+say 'Hi, the circumference of a circle with a radius of '.$radius." is $circle_circumference in \Uprecise\E 3."

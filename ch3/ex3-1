@@ -1,0 +1,9 @@
+#!/usr/bin/perl -w
+
+#use 5.014;
+use utf8;
+
+print "Enter a range of sentences to be reversed:\n";
+@tobe_reversed = <STDIN>;
+print "---Reversed:\n";		# scalar @array;  array $scalar;
+print reverse @tobe_reversed;
