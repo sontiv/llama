@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+
+use 5.014;
+use utf8;
+
+my @lines = <STDIN>;
+my @tmpLine = @lines;
+print @lines;		#print @lines . "lines\n";
+
+print "ASCIIbetical sort input on one line ...\n";
+my @T = sort @tmpLine;
+foreach my $li (@T) {
+	chomp $li;
+	$li = $li . "."x3;
+}
+say @T;
+
+print "ASCIIbetical sort input on seperated line ...\n";
+my @sortInNlines = sort(@lines);
+print @sortInNlines;
+
