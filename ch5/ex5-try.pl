@@ -32,3 +32,16 @@ print ((2+3)*5);
 
 =cut
 
+=begin  BlockComment  # BlockCommentNo_3
+
+printf "%12.3f\n", 6*7 + 2/3;
+my @items = qw( wilma dino pebbles);
+my $format = "The item are:\n".("%10s\n" x @items)."flu" x @items;
+print "the format is >>$format<<\n";
+printf  $format,@items;
+
+=end    BlockComment  # BlockCommentNo_3
+
+=cut
+
+
