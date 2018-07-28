@@ -10,7 +10,12 @@ while ( <> ) {
 	print "It was $_ that I saw!  \n";
 }
 
+my @items = qw( wilma dino pebbles );
+my $format = "The items are:\n" . ("%20s\n" x @items);
+printf $format, "@items";
+printf $format, @items;
 
+# print {*STDERR} @items;
 
 =begin  BlockComment  # BlockCommentNo_1
 
