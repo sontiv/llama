@@ -15,6 +15,7 @@ my $format = "The items are:\n" . ("%20s\n" x @items);
 printf $format, "@items";
 printf $format, @items;
 
+# perl ex5-try.pl 1>imfine 2>imbad
 print {*STDERR} @items;
 
 =begin  BlockComment  # BlockCommentNo_1
