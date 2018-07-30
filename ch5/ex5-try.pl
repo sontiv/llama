@@ -15,7 +15,7 @@ my $format = "The items are:\n" . ("%20s\n" x @items);
 printf $format, "@items";
 printf $format, @items;
 
-# print {*STDERR} @items;
+print {*STDERR} @items;
 
 =begin  BlockComment  # BlockCommentNo_1
 
