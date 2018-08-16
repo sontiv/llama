@@ -6,21 +6,22 @@ my $selected_output = "file-my_output";
 my $log = "LOG";
 my $fopen_success = open LOG, ">", "$selected_output";
 
-if ( $fopen_success) {
-print {*LOG} "$selected_output";
-print LOG "\nim ok";
-print $log "\nu define me";
+if ( $fopen_success ) {
+	print {*LOG} "$selected_output";
+	print LOG "\nim ok";
+	print $log "\nu define me";
 
-#$_="ooh";
-my @pabber = qw / one forest clock /;
-foreach (@pabber) {
-	print {$log} "\n";
-	print LOG;
- }
- select($log);
- print "\nooh";
+	#$_="ooh";
+	my @pabber = qw / one forest clock /;
+	foreach (@pabber) {
+		print {$log} "\n";
+		print LOG;
+	 }
 
-close LOG;
+	select($log);
+	print "\nooh";
+
+	close LOG;
 }
 
 my $i = open e_LOG, "< none";
