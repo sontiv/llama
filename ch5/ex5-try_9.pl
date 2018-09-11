@@ -24,4 +24,11 @@ perl -e 'my $myio=\STDERR; print $$myio + ("anything \n") ' 1>/dev/null
 =end    BlockComment  # BlockCommentNo_1
 
 =cut
+#!/usr/bin/perl -w
+use 5.014;
+use utf8;
+
+use Data::Dumper;
+# perldoc Data::Dumper
+# perldoc -m Data::Dumper
 
