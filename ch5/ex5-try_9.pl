@@ -31,4 +31,6 @@ use utf8;
 use Data::Dumper;
 # perldoc Data::Dumper
 # perldoc -m Data::Dumper
+# later we can use ../home/ben/shui/llama/Challenge/wrox-ammp.pl
+# use "o store getcwd(:cd)
 
